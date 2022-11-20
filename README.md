@@ -5,12 +5,15 @@
 [![ci](https://github.com/FNNDSC/pl-generatefiles/actions/workflows/ci.yml/badge.svg)](https://github.com/FNNDSC/pl-generatefiles/actions/workflows/ci.yml)
 
 `pl-generatefiles` is a [_ChRIS_](https://chrisproject.org/)
-_ds_ plugin which takes in ...  as input files and
-creates ... as output files.
+_fs_ plugin which creates files to _outputdir_.
 
 ## Abstract
 
-...
+This plugin requires one argument: `outputdir`, which is the output directory of the generated files.
+
+After that, it will generate a file called _generate_files.txt_ in `outputdir`, which contains the create time of itself.
+
+Note: It's just a primary demo, and features will be added later as needed.
 
 ## Installation
 
