@@ -13,7 +13,7 @@ __version__ = '1.0.0'
 DISPLAY_TITLE = r"""
 ChRIS Plugin Template Title
 """
-
+INPUT_DIR = 'img'
 
 parser = ArgumentParser(description='cli description',
                         formatter_class=ArgumentDefaultsHelpFormatter)
@@ -23,10 +23,10 @@ parser.add_argument('-V', '--version', action='version',
                     version=f'%(prog)s {__version__}')
 
 
-# # copy files
-# def copy_files(input_dir: Path, output_dir: Path):
-#     print("Copying path {input_dir} to path {output_dir}".format(input_dir=input_dir, output_dir=output_dir))
-#     shutil.copytree(str(input_dir), str(output_dir))
+# copy files
+def copy_files(input_dir: Path, output_dir: Path):
+    print("Copying path {input_dir} to path {output_dir}".format(input_dir=input_dir, output_dir=output_dir))
+    shutil.copytree(str(input_dir), str(output_dir), dirs_exist_ok=True)
 
 
 # documentation: https://fnndsc.github.io/chris_plugin/chris_plugin.html#chris_plugin
@@ -51,10 +51,10 @@ def main(options: Namespace, outputdir: Path):
     # output_file = outputdir / f'{options.name}.txt'
     # output_file.write_text('did nothing successfully!')
 
-    # copy_files(outputdir)
+    copy_files(Path(INPUT_DIR), outputdir)
     # print(__name__)
-    with open("%s/%s.txt" % (str(outputdir), __name__), 'w', encoding='utf-8') as f:
-        f.write("The time of now is " + str(time.strftime("%m-%d-%Y %H:%M:%S")))
+    # with open("%s/%s.txt" % (str(outputdir), __name__), 'w', encoding='utf-8') as f:
+    #     f.write("The time of now is " + str(time.strftime("%m-%d-%Y %H:%M:%S")))
 
 
 

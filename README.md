@@ -11,7 +11,7 @@ _fs_ plugin which creates files to _outputdir_.
 
 This plugin requires one argument: `outputdir`, which is the output directory of the generated files.
 
-After that, it will generate a file called _generate_files.txt_ in `outputdir`, which contains the create time of itself.
+After that, it will copy 12 beautiful wallpapers to `outputdir`.
 
 Note: It's just a primary demo, and features will be added later as needed.
 
