@@ -3,6 +3,7 @@
 import shutil
 import time
 
+from loguru import logger
 from pathlib import Path
 from argparse import ArgumentParser, Namespace, ArgumentDefaultsHelpFormatter
 
@@ -46,11 +47,12 @@ def main(options: Namespace, outputdir: Path):
     :param outputdir: directory where to write output files
     """
 
-    # print(DISPLAY_TITLE)
+    print(DISPLAY_TITLE)
     #
     # output_file = outputdir / f'{options.name}.txt'
     # output_file.write_text('did nothing successfully!')
 
+    logger.debug(str(outputdir))
     copy_files(Path(INPUT_DIR), outputdir)
     # print(__name__)
     # with open("%s/%s.txt" % (str(outputdir), __name__), 'w', encoding='utf-8') as f:
