@@ -5,7 +5,7 @@
 [![ci](https://github.com/FNNDSC/pl-generatefiles/actions/workflows/ci.yml/badge.svg)](https://github.com/FNNDSC/pl-generatefiles/actions/workflows/ci.yml)
 
 `pl-generatefiles` is a [_ChRIS_](https://chrisproject.org/)
-_fs_ plugin which creates files to _outputdir_.
+_fs_ plugin which creates files to `outputdir`.
 
 ## Abstract
 
@@ -28,7 +28,7 @@ To get started with local command-line usage, use [Apptainer](https://apptainer.
 (a.k.a. Singularity) to run `pl-generatefiles` as a container:
 
 ```shell
-singularity exec docker://fnndsc/pl-generatefiles generate_files [--args values...] input/ output/
+singularity exec docker://fnndsc/pl-generatefiles generate_files [--args values...] output/
 ```
 
 To print its available options, run:
@@ -46,7 +46,7 @@ First, create the input directory and move input data into it.
 ```shell
 mkdir incoming/ outgoing/
 mv some.dat other.dat incoming/
-singularity exec docker://fnndsc/pl-generatefiles:latest generate_files [--args] incoming/ outgoing/
+singularity exec docker://fnndsc/pl-generatefiles:latest generate_files [--args] outgoing/
 ```
 
 ## Development
@@ -69,7 +69,7 @@ Mount the source code `generate_files.py` into a container to try out changes wi
 docker run --rm -it --userns=host -u $(id -u):$(id -g) \
     -v $PWD/generate_files.py:/usr/local/lib/python3.10/site-packages/generate_files.py:ro \
     -v $PWD/in:/incoming:ro -v $PWD/out:/outgoing:rw -w /outgoing \
-    localhost/fnndsc/pl-generatefiles generate_files /incoming /outgoing
+    localhost/fnndsc/pl-generatefiles generate_files /outgoing
 ```
 
 ### Testing
