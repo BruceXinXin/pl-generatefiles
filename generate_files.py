@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import shutil
 import time
 
@@ -40,7 +41,7 @@ def copy_files(input_dir: Path, output_dir: Path):
     min_gpu_limit=0              # set min_gpu_limit=1 to enable GPU
 )
 # def main(options: Namespace, inputdir: Path, outputdir: Path):
-def main(options: Namespace, outputdir: Path):
+def main(options: Namespace, inputdir: Path, outputdir: Path):
     """
     :param options: non-positional arguments parsed by the parser given to @chris_plugin
     :param inputdir: directory containing input files (read-only)
@@ -53,7 +54,7 @@ def main(options: Namespace, outputdir: Path):
     # output_file.write_text('did nothing successfully!')
 
     logger.debug(str(outputdir))
-    copy_files(Path(INPUT_DIR), outputdir)
+    copy_files(inputdir, outputdir)
     # print(__name__)
     # with open("%s/%s.txt" % (str(outputdir), __name__), 'w', encoding='utf-8') as f:
     #     f.write("The time of now is " + str(time.strftime("%m-%d-%Y %H:%M:%S")))
